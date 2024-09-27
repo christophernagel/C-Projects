@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-double celsiustoFahrenheit(double celsius) {
-    return (celsius - 32) * (5.0/9.0);
-}
-
-double celsiustoKelvin(double celsius){
-    return (celsius + 273.15);
-}
 
 double fahrenheittoCelsius(double fahrenheit){
     return (fahrenheit * (9.0/5.0)) + 32;
@@ -25,16 +18,18 @@ double kelvintoCelsius(double kelvin){
     return (kelvin - 273.15);
 }
 
+double celsiustoFahrenheit(double celsius) {
+    return (celsius - 32) * (5.0/9.0);
+}
+
+double celsiustoKelvin(double celsius){
+    return (celsius + 273.15);
+}
+
 double convTemp(double input, char fromUnit, char toUnit) {
 
     switch(toupper(fromUnit)) {
-        case 'C':
-            switch(toupper(toUnit)) {
-                case 'F': return celsiustoFahrenheit(input);
-                case 'K': return celsiustoKelvin(input);
-                case 'C': return input;
-                default: return 0;
-            }
+
         case 'F':
             switch(toupper(toUnit)) {
                 case 'F': return input;
@@ -47,6 +42,13 @@ double convTemp(double input, char fromUnit, char toUnit) {
                 case 'F': return kelvintoFahrenheit(input);
                 case 'K': return input;
                 case 'C': return kelvintoCelsius(input);
+                default: return 0;
+            }
+        case 'C':
+            switch(toupper(toUnit)) {
+                case 'F': return celsiustoFahrenheit(input);
+                case 'K': return celsiustoKelvin(input);
+                case 'C': return input;
                 default: return 0;
             }
         default:
