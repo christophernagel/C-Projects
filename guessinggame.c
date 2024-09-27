@@ -16,10 +16,10 @@ int main() {
     //running------------------------------------------
     printf("Guess a number between 0 - 100: ");
     while (scanf("%d", &input) == 1) {
-        //if user guess is higher, printf, too high
+        //if user guess is low, printf, too low/
         if (input < correctNum) {
             printf("Guess Higher! Try again:");
-        //else if user guess is lower, printf, too low
+        //else if user guess is high, printf, too high
         } else if(input > correctNum) {
             printf("Guess Lower! Try again:");
         //else user is correct    
